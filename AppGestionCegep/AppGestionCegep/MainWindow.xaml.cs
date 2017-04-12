@@ -23,6 +23,8 @@ namespace AppGestionCegep
         public MainWindow()
         {
             InitializeComponent();
+            hello world
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
