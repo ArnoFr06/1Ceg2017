@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,17 @@ namespace AppGestionCegep
                             // Save document
                             string filename = dlg.FileName;
                         }
+            // Compose a string that consists of three lines.
+            string lines = "First line.\r\nSecond line.\r\nThird line.";
+
+            // Write the string to a file.
+            System.IO.StreamWriter file = new System.IO.StreamWriter(".\test.txt");
+            file.WriteLine(lines);
+
+            file.Close();
+
         }
+
+       
     }
 }

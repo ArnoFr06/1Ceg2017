@@ -7,7 +7,45 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="188,123,0,0" Click="Button_Click"/>
-
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" />
+                    <MenuItem Header="_Open" />
+                    <MenuItem Header="_Save" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+            </Menu>
+            <TextBox AcceptsReturn="True" />
+        </DockPanel>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="228,10,0,0" Click="Button_Click"/>
+        <TabControl HorizontalAlignment="Left" Height="284" Margin="0,35,0,0" VerticalAlignment="Top" Width="517">
+            <TabItem Header="Onglet 1">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="Onglet 2">
+                <Grid Background="#FFE5E5E5"/>
+                
+                
+                
+                
+            </TabItem>
+        </TabControl>
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
     </Grid>
+
+    
+
+    
 </Window>
