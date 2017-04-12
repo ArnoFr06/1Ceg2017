@@ -23,7 +23,7 @@ namespace AppGestionCegep
         public MainWindow()
         {
             InitializeComponent();
-            hello world
+           // hello world
             
         }
 
