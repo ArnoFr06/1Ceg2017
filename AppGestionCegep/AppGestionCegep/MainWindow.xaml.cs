@@ -35,13 +35,8 @@ namespace AppGestionCegep
             XmlTextReader reader = new XmlTextReader("books.xml");
             combo1.Items.Add("Programmes préuniversitaires");
             combo1.Items.Add("Programmes techniques");
-
         }
         
-
-        
-
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Title = "Clicked";
@@ -51,21 +46,19 @@ namespace AppGestionCegep
             dlg.Filter = "Text documents (.txt)|*.txt"; // Filter files by extension
             
                         // Show save file dialog box
-            Nullable < bool > result = dlg.ShowDialog();
-            
-                        // Process save file dialog box results
-                        if (result == true)
-                        {
-                            // Save document
-                            string filename = dlg.FileName;
-                        }
+            Nullable <bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results
+            if (result != null)
+            {
+                string filename = dlg.FileName; // Save document
+            }
             // Compose a string that consists of three lines.
             string lines = "First line.\r\nSecond line.\r\nThird line.";
 
             // Write the string to a file.
             System.IO.StreamWriter file = new System.IO.StreamWriter(".\test.txt");
             file.WriteLine(lines);
-
             file.Close();
 
         }
@@ -85,5 +78,7 @@ namespace AppGestionCegep
             tab1.Width = Width;
             tab1.Height = Height;
         }
+
+        
     }
 }
