@@ -24,7 +24,9 @@ namespace AppGestionCegep
         public MainWindow()
         {
             InitializeComponent();
-           // hello world
+            // hello world
+            Programme a = new Programme("oui", "oui", "oui");
+            button.Content = a.getNum();
             
         }
 
@@ -56,6 +58,9 @@ namespace AppGestionCegep
 
         }
 
-       
+        private void TabItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
