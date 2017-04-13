@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AppGestionCegep
 {
-    class Programme
+    class Cours
     {
         private string num;
         private string nom;
-        private string heure;
+        private float heure;
 
-        public Programme(string num, string nom, string heure)
+        public Cours(string num, string nom, float heure)
         {
             this.num = num;
             this.nom = nom;
@@ -28,5 +28,26 @@ namespace AppGestionCegep
         {
             this.num = num;
         }
+
+        public string getNom()
+        {
+            return nom;
+        }
+
+        public void setNom(string nom)
+        {
+            this.nom = nom;
+        }
+
+        public float getHeure()
+        {
+            return heure;
+        }
+
+        public void setHeure(float heure)
+        {
+            this.heure = heure;
+        }
+
     }
 }

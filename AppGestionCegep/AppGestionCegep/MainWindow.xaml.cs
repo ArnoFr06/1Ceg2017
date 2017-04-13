@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace AppGestionCegep
 {
@@ -25,10 +26,21 @@ namespace AppGestionCegep
         {
             InitializeComponent();
             // hello world
-            Programme a = new Programme("oui", "oui", "oui");
+            Cours a = new Cours("oui", "oui", 15);
             button.Content = a.getNum();
-            
+            Console.WriteLine(Width);
+
+            // tab1.Width = Width; 
+
+            XmlTextReader reader = new XmlTextReader("books.xml");
+            combo1.Items.Add("Programmes préuniversitaires");
+            combo1.Items.Add("Programmes techniques");
+
         }
+        
+
+        
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -61,6 +73,17 @@ namespace AppGestionCegep
         private void TabItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(Width);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            tab1.Width = Width;
+            tab1.Height = Height;
         }
     }
 }
