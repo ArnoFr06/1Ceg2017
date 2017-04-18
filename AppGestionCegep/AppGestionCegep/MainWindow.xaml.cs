@@ -68,9 +68,12 @@ namespace AppGestionCegep
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             tab1.Width = Width;
-            tab1.Height = Height;
+            tab1.Height = 0.90 * Height;
+            Liste_cours.Height = 0.883 * Height;
+            Liste_cours.Width = 0.449 * Width;
+            Menu.Width = Width;
         }
 
-        
+        //private void Window_fullScreen(object sender, FullScreenEventArgs e) ?
     }
 }

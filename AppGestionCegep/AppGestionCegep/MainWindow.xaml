@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppGestionCegep"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500" SizeChanged="Window_SizeChanged"  >
-    <Grid Name="a2">
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
+        Title="MainWindow" Height="489" Width="538" SizeChanged="Window_SizeChanged" >
+
+    <Grid Name="a2" Background="Black">
+        <DockPanel Name="DockPnl">
+            <Menu Name="Menu" DockPanel.Dock="Top" Height="22" Width="530" VerticalAlignment="Top" >
+                <MenuItem Header="_File" Width="528">
                     <MenuItem Header="_New"  />
                     <MenuItem Header="_Open" Click="Button_Click"/>
                     <MenuItem Header="_Save" />
@@ -17,19 +18,19 @@
                     <MenuItem Header="_Exit" />
                 </MenuItem>
             </Menu>
-            <TextBox AcceptsReturn="True" />
         </DockPanel>
 
-        <TabControl Name="tab1" HorizontalAlignment="Stretch"  Height="424" Margin="0,35,0,0" VerticalAlignment="Top" Width="492">
-            <TabItem Header="Onglet 1">
-                <Grid Background="#C4D7ED"  >
+        <TabControl Name="tab1" HorizontalAlignment="Center" Margin="4,22,2,0" Width="524" >
 
+            <!-- ONGLET 1 -->
+            <TabItem Header="Onglet 1" HorizontalAlignment="Left">
+                <Grid Background="#C4D7ED"  >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
-                    <Grid Grid.Column="0" Background="AntiqueWhite" >
+                    <Grid Background="AntiqueWhite" Margin="0,0,0,0" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
@@ -41,30 +42,43 @@
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="2*"/>
                         </Grid.RowDefinitions>
-                        <Label    Grid.Row="0" Content="Type de programme :" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Bottom"/>
-                        <ComboBox Grid.Row="1" Name="combo1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190" />
-                        <Label    Grid.Row="2" Content="Nom du cours :" HorizontalAlignment="Center"  VerticalAlignment="Bottom"/>
-                        <TextBox  Grid.Row="3" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
-                        <Label    Grid.Row="4" Content="Identifiant du cours :" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                        <TextBox  Grid.Row="5" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap"  Text="" VerticalAlignment="Center" Width="120"/>
-                        <Label    Grid.Row="6" Content="Heure du cours :" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-                        <TextBox  Grid.Row="7" Name="champNom" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
-                        <Button   Grid.Row="8" Content="Ajouter" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
+                        <Label    Grid.Row="0" Content="Type de programme :" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <ComboBox Grid.Row="1" Name="combo1" Width="190"     HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Label    Grid.Row="2" Content="Nom du cours :"      HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBox  Grid.Row="3" Width="120"                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Label    Grid.Row="4"                               HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Identifiant du cours :" />
+                        <TextBox  Grid.Row="5" Width="120"                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Label    Grid.Row="6" Content="Heure du cours :"    HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBox  Grid.Row="7" Width="120"                   HorizontalAlignment="Center" VerticalAlignment="Center"  Name="champNom"/>
+                        <Button   Grid.Row="8" Content="Ajouter" Width="76"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                     </Grid>
-                    <ListBox Name="Liste_cours" Grid.Column="2" HorizontalAlignment="Left" Height="338" Margin="10,10,0,0" VerticalAlignment="Top" Width="221"/>
+                    <ListBox Name="Liste_cours" Grid.Column="1" HorizontalAlignment="Stretch"  Margin="18,10,17,9" VerticalAlignment="Stretch" Width="221" />
+                </Grid>
+            </TabItem>
 
+            <!-- ONGLET 2 -->
 
+            <TabItem Header="Onglet 2" HorizontalAlignment="Right" Width="60" >
+                <Grid Grid.Column="0" Background="AntiqueWhite">
+                    <DockPanel Background="White" HorizontalAlignment="Center" Height="375" VerticalAlignment="Center" Width="502" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+                        <Grid Height="395" VerticalAlignment="Top">
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </DockPanel>
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Onglet 2" >
-                <Grid Background="#FFE5E5E5" Margin="201,144,993,588">
-                    <ListBox HorizontalAlignment="Left" Height="100" Margin="108,127,0,0" VerticalAlignment="Top" Width="100"/>
-                </Grid>
 
-
-            </TabItem>
         </TabControl>
 
 
