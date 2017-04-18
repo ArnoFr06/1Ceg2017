@@ -10,8 +10,8 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_New" />
-                    <MenuItem Header="_Open" />
+                    <MenuItem Header="_New"  />
+                    <MenuItem Header="_Open" Click="Button_Click"/>
                     <MenuItem Header="_Save" />
                     <Separator />
                     <MenuItem Header="_Exit" />
@@ -20,10 +20,6 @@
             <TextBox AcceptsReturn="True" />
         </DockPanel>
 
-
-
-
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="232,19,0,0" Click="Button_Click"/>
         <TabControl Name="tab1" HorizontalAlignment="Stretch"  Height="424" Margin="0,35,0,0" VerticalAlignment="Top" Width="492">
             <TabItem Header="Onglet 1">
                 <Grid Background="#C4D7ED"  >
