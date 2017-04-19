@@ -8,15 +8,22 @@ namespace AppGestionCegep
 {
     class Cours
     {
+        private string type;
         private string num;
         private string nom;
         private float heure;
 
-        public Cours(string num, string nom, float heure)
+        public Cours(string type,string num, string nom, float heure)
         {
+            this.type = type;
             this.num = num;
             this.nom = nom;
             this.heure = heure;
+        }
+
+        public string ToString()
+        {
+            return nom + " " + num + " " + type + " " + heure + ";";
         }
 
         public string getNum()
