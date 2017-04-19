@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,12 +35,6 @@ namespace AppGestionCegep
             Disposition();
             compteur = cours.Capacity;
             Console.WriteLine(compteur);
-           
-            
-          
-            Type_Box.Items.Add("Programmes préuniversitaires");
-            Type_Box.Items.Add("Programmes techniques");
-
             /////////////TESTS///////////////
             //Cours ok = new Cours("ok","ok","ok",15);
             // Console.WriteLine(ok.ToString());
@@ -51,8 +46,8 @@ namespace AppGestionCegep
         private void CreerCours(string type,string num,string nom,float heure)
         {
             cours.Add(new Cours(type, num, nom, heure));
-            List_Box.Items.Add(cours[compteur].ToString());
-            Console.WriteLine(cours[compteur].ToString());
+            List_Box.Items.Add(cours[compteur].ToString);
+            Console.WriteLine(cours[compteur].ToString);
             compteur++;
         }
 
@@ -179,10 +174,32 @@ namespace AppGestionCegep
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
             
-            float er = (float)Convert.ToDouble(H_Cours.Text);
-            bool valid = float.TryParse(H_Cours.Text.ToString(), out er);
-            CreerCours(Type_Box.SelectedValue.ToString(), Id_Champ.Text, Nom_Champ.Text, er);
-            Console.WriteLine(er);
+            
+            if (Id_Champ.Text != "" && Nom_Champ.Text != "" && H_Cours.Text != "")
+            {
+                if (Regex.IsMatch(H_Cours.Text, "^[0-9]+,{0,1}[0-9]*$"))
+                {
+                    float er = (float)Convert.ToDouble(H_Cours.Text);
+                    bool valid = float.TryParse(H_Cours.Text.ToString(), out er);
+                    CreerCours(Type_Box.SelectionBoxItem.ToString(), Id_Champ.Text, Nom_Champ.Text, er);
+                }
+                else
+                    MessageBox.Show("Heure cours doit être uniquement composé de chifres");
+            } else
+            {
+                MessageBox.Show("Vous devez remplir tout les champs", "Erreur");
+            }
+        }
+
+
+        private void suppr_button(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void Type_Box_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

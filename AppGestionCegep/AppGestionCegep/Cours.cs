@@ -21,9 +21,12 @@ namespace AppGestionCegep
             this.heure = heure;
         }
 
-        public string ToString()
+        public new string ToString
         {
-            return nom + " " + num + " " + type + " " + heure + ";";
+            get
+            {
+                return nom + " | " + num + " | " + type + "  " + heure + ";";
+            }
         }
 
         public string getNum()
