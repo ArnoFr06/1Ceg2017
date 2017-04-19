@@ -23,9 +23,10 @@ namespace AppGestionCegep
 
             // tab1.Width = Width; 
 
-            XmlTextReader reader = new XmlTextReader("books.xml");
+          
             combo1.Items.Add("Programmes préuniversitaires");
             combo1.Items.Add("Programmes techniques");
+            tab1.Height = 300;
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,10 +56,7 @@ namespace AppGestionCegep
             
         }
 
-        private void TabItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
+       
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -71,6 +69,9 @@ namespace AppGestionCegep
             tab1.Height = Height;
         }
 
-        
+        private void Ajouter_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
