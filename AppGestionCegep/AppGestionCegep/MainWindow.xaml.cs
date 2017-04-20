@@ -62,16 +62,6 @@ namespace AppGestionCegep
 
             srcTree.Add(new XElement("ok", new XAttribute("ok", "ok")));
 
-
-
-
-
-
-
-
-
-
-
             XDocument xdoc = new XDocument(
                 new XElement("graphml",
                     new XAttribute("xmlsn", "http://graphml.graphdrawing.org/xmlns"),
@@ -127,7 +117,6 @@ namespace AppGestionCegep
         );
         Console.WriteLine(doc);*/
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Title = "Clicked";
@@ -166,11 +155,6 @@ namespace AppGestionCegep
             Console.WriteLine(Width);
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-           
-        }
-
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
             
@@ -184,17 +168,20 @@ namespace AppGestionCegep
                     CreerCours(Type_Box.SelectionBoxItem.ToString(), Id_Champ.Text, Nom_Champ.Text, er);
                 }
                 else
-                    MessageBox.Show("Heure cours doit être uniquement composé de chifres");
+                    MessageBox.Show("   Erreur de saisie\n\n        Heures de cours doit être un nombre entier ou réel", "Erreur de saisie");
             } else
             {
                 MessageBox.Show("Vous devez remplir tout les champs", "Erreur");
             }
         }
 
-
-        private void suppr_button(object sender, MouseButtonEventArgs e)
+        
+        private void Etat_suppression(object sender, RoutedEventArgs e)
         {
-            
+            if (List_Box.SelectedItem != null)
+                suppression.IsEnabled = true;
+            else
+                suppression.IsEnabled = false;
         }
 
         private void Type_Box_Selected(object sender, RoutedEventArgs e)

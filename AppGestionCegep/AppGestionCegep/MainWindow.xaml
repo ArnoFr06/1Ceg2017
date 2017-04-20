@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppGestionCegep"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="600" SizeChanged="Window_SizeChanged" MinHeight="500" MinWidth="400" >
+        Title="MainWindow" Height="480" Width="640" MinHeight="500" MinWidth="400" >
     <Grid Name="grid1">
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -43,8 +43,8 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <ComboBox Grid.Row="1" Name="Type_Box" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190" >
-                                <ComboBoxItem Name="prog_preUniv" Content="Programmes préuniversitaire" IsSelected="True" />
-                                <ComboBoxItem Name="prog_Tech" Content="Programmes Technique" />
+                                <ComboBoxItem Content="Programmes préuniversitaire" IsSelected="True" />
+                                <ComboBoxItem Content="Programmes Technique" />
                             </ComboBox>
                             <TextBox Grid.Row="3" Name="Nom_Champ" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
                             <TextBox Grid.Row="5" Name="Id_Champ" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap"  Text="" VerticalAlignment="Center" Width="120"/>
@@ -60,12 +60,12 @@
 
                         <Grid Name="gridD" Grid.Column="1">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="10*"/>
+                                <RowDefinition Height="9*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
 
-                            <ListBox Name="List_Box" Margin="40,40,40,40" Grid.ColumnSpan="2"/>
-
+                            <ListBox Grid.Row="0"  Name="List_Box" Margin="30" Height="319" VerticalAlignment="Center" HorizontalAlignment="Center" Width="231"/>
+                            <Button  Grid.Row="1"  Name="suppression" Content="Supprimer" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                         </Grid>
 
 
@@ -73,12 +73,10 @@
 
                     </Grid>
                 </TabItem>
+
+
                 <TabItem Header="Onglet 2" >
-                    <Grid Background="#FFE5E5E5" Margin="201,144,993,588">
-                        <ListBox HorizontalAlignment="Left" Height="100" Margin="108,127,0,0" VerticalAlignment="Top" Width="100"/>
-                    </Grid>
-
-
+                    
                 </TabItem>
             </TabControl>
         </DockPanel>
