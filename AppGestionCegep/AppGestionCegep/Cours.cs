@@ -23,10 +23,10 @@ namespace AppGestionCegep
 
         public new string ToString
         {
-            get{
-                return nom + " " + num + " " + type + " " + heure + ";";
+            get
+            {
+                return nom + " | " + num + " | " + type + "  " + heure + ";";
             }
-            
         }
 
         public string getNum()

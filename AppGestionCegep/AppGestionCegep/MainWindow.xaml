@@ -42,20 +42,20 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
-                            <ComboBox Grid.Row="1" Name="Type_Box" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190">
-                                <ComboBoxItem Content="ok"></ComboBoxItem>
+                            <ComboBox Grid.Row="1" Name="Type_Box" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190" >
+                                <ComboBoxItem Name="prog_preUniv" Content="Programmes préuniversitaire" IsSelected="True" />
+                                <ComboBoxItem Name="prog_Tech" Content="Programmes Technique" />
                             </ComboBox>
-
                             <TextBox Grid.Row="3" Name="Nom_Champ" HorizontalAlignment="Center" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
                             <TextBox Grid.Row="5" Name="Id_Champ" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap"  Text="" VerticalAlignment="Center" Width="120"/>
-                            <TextBox Grid.Row="7" Name="H_Cours" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" />
+                            <TextBox Grid.Row="7" Name="H_Cours" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" AutomationProperties.HelpText="Indiquez un nombre d'heures"  />
                             <Label Grid.Row="0" Content="Type de programme :" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Bottom"/>
                             <Label Grid.Row="2" Content="Nom du cours :" HorizontalAlignment="Center"  VerticalAlignment="Bottom"/>
                             <Label Grid.Row="4" Content="Identifiant du cours :" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
                             <Label Grid.Row="6" Content="Heure du cours :" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
                             <Button Click="Ajouter_Click" Grid.Row="9" Content="Ajouter" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
 
-                            
+
                         </Grid>
 
                         <Grid Name="gridD" Grid.Column="1">
@@ -67,7 +67,7 @@
                             <ListBox Name="List_Box" Grid.Column="1" Margin="40,40,40,40"/>
                             
                         </Grid>
-                        
+
 
 
 
