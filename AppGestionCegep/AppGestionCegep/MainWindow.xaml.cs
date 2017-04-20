@@ -26,6 +26,8 @@ namespace AppGestionCegep
     {
         List<Cours> cours = new List<Cours>();
         static int compteur;
+        static XDocument XDSource = new XDocument();
+        static XElement XESource = new XElement("Cours","ok");
 
         public MainWindow()
         {
@@ -46,6 +48,7 @@ namespace AppGestionCegep
         private void CreerCours(string type,string num,string nom,float heure)
         {
             cours.Add(new Cours(type, num, nom, heure));
+            AjoutXDoc(type, num, nom, heure);
             List_Box.Items.Add(cours[compteur].ToString);
             Console.WriteLine(cours[compteur].ToString);
             compteur++;
@@ -56,67 +59,33 @@ namespace AppGestionCegep
 
         }
 
-        private void CreerXML()
+        private void AjoutXDoc(string type, string num, string nom, float heure)
         {
-            XDocument srcTree = new XDocument();
+            //xsource.Add(new XElement("Cours"+compteur, new XAttribute("type", type), new XAttribute("num", num), new XAttribute("nom", nom), new XAttribute("heure", heure)));
+            XElement source = new XElement("Cours",compteur);
+            XAttribute xtype = new XAttribute("type", type);
+            XAttribute xnum = new XAttribute("num", num);
+            XAttribute xnom = new XAttribute("nom", nom);
+            XAttribute xheure = new XAttribute("heure", heure);
+            XComment xcom = new XComment("c'est ok");
+            source.Add(xtype, xnum, xnom, xheure,xcom);
+            XESource.Add(source);
 
-            srcTree.Add(new XElement("ok", new XAttribute("ok", "ok")));
-
-            XDocument xdoc = new XDocument(
-                new XElement("graphml",
-                    new XAttribute("xmlsn", "http://graphml.graphdrawing.org/xmlns"),
-                    new XElement("graph",
-                        new XAttribute("id", "test"),
-                        new XElement("node",
-                            new XAttribute("id", "1")), // switch 1
-                        new XElement("node",
-                            new XAttribute("id", "2")), // switch 2
-                        new XElement("node",
-                            new XAttribute("id", "3")),
-                        new XElement("edge",
-                            new XAttribute("id", "1to2"),
-                            new XAttribute("source", "1"),
-                            new XAttribute("target", "2")),
-                        new XElement("edge",
-                            new XAttribute("id", "1to3"),
-                            new XAttribute("source", "1"),
-                            new XAttribute("target", "3")),
-                        new XElement("edge",
-                            new XAttribute("id", "2to3"),
-                            new XAttribute("source", "2"),
-                            new XAttribute("target", "3")))));
-
-            Console.WriteLine(srcTree);
-            //xdoc.Save(AppDomain.CurrentDomain.BaseDirectory + @"\gmlFile\test.gml");
-
-
-
-
-
-
-            /*new XComment("This is a comment"),
-         new XElement("Root",
-         new XElement("Child1", "data1"),
-         new XElement("Child2", "data2"),
-         new XElement("Child3", "data3"),
-         new XElement("Child2", "data4"),
-         new XElement("Info5", "info5"),
-         new XElement("Info6", "info6"),
-         new XElement("Info7", "info7"),
-         new XElement("Info8", "info8")
-        )
-        );
-
-        XDocument doc = new XDocument(
-            new XComment("This is a comment"),
-            new XElement("Root",
-                from el in srcTree.Element("Root").Elements()
-                where ((string)el).StartsWith("data")
-                select el
-            )
-        );
-        Console.WriteLine(doc);*/
+            /*
+            xsource.Add(source);
+            Console.WriteLine(xsource);
+            */
         }
+
+
+        private void SaveXML()
+        {
+            XDSource.Add(XESource);
+            Console.WriteLine(XDSource);
+            XDSource.Save(AppDomain.CurrentDomain.BaseDirectory + @"\test.cegep");
+            
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Title = "Clicked";
@@ -155,6 +124,11 @@ namespace AppGestionCegep
             Console.WriteLine(Width);
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+           
+        }
+
         private void Ajouter_Click(object sender, RoutedEventArgs e)
         {
             
@@ -168,25 +142,27 @@ namespace AppGestionCegep
                     CreerCours(Type_Box.SelectionBoxItem.ToString(), Id_Champ.Text, Nom_Champ.Text, er);
                 }
                 else
-                    MessageBox.Show("   Erreur de saisie\n\n        Heures de cours doit être un nombre entier ou réel", "Erreur de saisie");
+                    MessageBox.Show("Heure cours doit être uniquement composé de chifres");
             } else
             {
                 MessageBox.Show("Vous devez remplir tout les champs", "Erreur");
             }
         }
 
-        
-        private void Etat_suppression(object sender, RoutedEventArgs e)
+
+        private void suppr_button(object sender, MouseButtonEventArgs e)
         {
-            if (List_Box.SelectedItem != null)
-                suppression.IsEnabled = true;
-            else
-                suppression.IsEnabled = false;
+            
         }
 
         private void Type_Box_Selected(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveXML();
         }
     }
 }
